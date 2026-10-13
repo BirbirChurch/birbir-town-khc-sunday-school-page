@@ -56,7 +56,7 @@ export const Header: React.FC<HeaderProps> = ({
                   የብርብር ከተማ ቃለ ሕይወት ቤተክርስቲያን
                 </h1>
                 <p className="text-blue-200 text-xs sm:text-sm font-medium mt-0.5">
-                  የልጆች አገልግሎት ዘርፍ የመረጃ፣ የውጤትና የዕቅድ ማኔጅመንት ሲስተም
+                  የልጆች አገልግሎት ዘርፍ የውጤት፣ የመረጃና የዕቅድ ማኔጅመንት ሥርዓት
                 </p>
               </div>
             </div>

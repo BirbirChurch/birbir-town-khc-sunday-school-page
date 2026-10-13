@@ -191,13 +191,13 @@ export const ClassesTab: React.FC<ClassesTabProps> = ({
               />
             </div>
 
-            {canEdit && (
+            {(canEdit || currentUserRole === 'leader') && (
               <button
                 onClick={() => setShowAddModal(true)}
                 className="bg-blue-800 hover:bg-blue-700 text-white text-xs font-semibold px-3.5 py-2 rounded-xl transition flex items-center gap-1.5 shadow-sm"
               >
                 <UserPlus className="w-3.5 h-3.5" />
-                አዲስ ተማሪ
+                + አዲስ ተማሪ አስገባ
               </button>
             )}
 
@@ -267,7 +267,11 @@ export const ClassesTab: React.FC<ClassesTabProps> = ({
                   ድምር (100)
                 </th>
                 <th className="py-3 px-2 border-r border-slate-200 w-16">ደረጃ</th>
-                <th className="py-3 px-2 print:hidden w-16">ተግባር</th>
+                {currentUserRole !== 'leader' && (
+                  <th className="py-3 px-2 print:hidden w-16" id="actionHeaderTh">
+                    ተግባር
+                  </th>
+                )}
               </tr>
             </thead>
             <tbody className="divide-y divide-slate-200 text-center">
@@ -452,23 +456,25 @@ export const ClassesTab: React.FC<ClassesTabProps> = ({
                       </td>
 
                       {/* Action */}
-                      <td className="py-2.5 px-2 print:hidden">
-                        {canEdit ? (
-                          <button
-                            onClick={() => {
-                              if (confirm(`${s.name} የተባለውን ተማሪ መሰረዝ ይፈልጋሉ?`)) {
-                                onDeleteStudent(s.id);
-                              }
-                            }}
-                            className="text-rose-600 hover:text-rose-800 p-1 rounded hover:bg-rose-50 transition"
-                            title="ተማሪ ሰርዝ"
-                          >
-                            <Trash2 className="w-4 h-4 mx-auto" />
-                          </button>
-                        ) : (
-                          <span className="text-slate-400">-</span>
-                        )}
-                      </td>
+                      {currentUserRole !== 'leader' && (
+                        <td className="py-2.5 px-2 print:hidden">
+                          {canEdit ? (
+                            <button
+                              onClick={() => {
+                                if (confirm(`${s.name} የተባለውን ተማሪ መሰረዝ ይፈልጋሉ?`)) {
+                                  onDeleteStudent(s.id);
+                                }
+                              }}
+                              className="text-rose-600 hover:text-rose-800 p-1 rounded hover:bg-rose-50 transition"
+                              title="ተማሪ ሰርዝ"
+                            >
+                              <Trash2 className="w-4 h-4 mx-auto" />
+                            </button>
+                          ) : (
+                            <span className="text-slate-400">-</span>
+                          )}
+                        </td>
+                      )}
                     </tr>
                   );
                 })

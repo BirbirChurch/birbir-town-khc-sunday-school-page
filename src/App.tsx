@@ -372,11 +372,11 @@ export default function App() {
     { id: 'attendanceTab', label: 'የዕለቱ የቀሪዎች ሪፖርት', icon: CalendarCheck2, roles: ['admin', 'leader', 'teacher'] },
     { id: 'choirTab', label: 'የመዘምራንና ኪነ-ጥበብ ቡድኖች', icon: Music, roles: ['admin', 'leader', 'teacher'] },
     { id: 'spiritualTab', label: 'መንፈሳዊ ትምህርት ቡድኖች', icon: BookOpen, roles: ['admin', 'leader', 'teacher'] },
-    { id: 'topAchieversTab', label: 'ከ1ኛ - 3ኛ የወጡ', icon: Award, roles: ['admin', 'leader', 'teacher'] },
+    { id: 'topAchieversTab', label: 'ከ1ኛ - 3ኛ ደረጃዎች', icon: Award, roles: ['admin', 'leader', 'teacher'] },
     { id: 'planReportTab', label: 'የዓመት ዕቅድ & ሩብ ሪፖርት', icon: Target, roles: ['admin'] },
-    { id: 'teachersTab', label: 'መምህራን & PIN', icon: UserCheck, roles: ['admin', 'leader'] },
-    { id: 'subjectsTab', label: 'ትምህርቶች', icon: BookMarked, roles: ['admin', 'leader'] },
-    { id: 'pinManageTab', label: 'PIN ቅንብር', icon: KeyRound, roles: ['admin'] },
+    { id: 'teachersTab', label: 'የመምህራን ዝርዝር & PIN', icon: UserCheck, roles: ['admin', 'leader'] },
+    { id: 'subjectsTab', label: 'የትምህርት ዓይነቶች', icon: BookMarked, roles: ['admin', 'leader'] },
+    { id: 'pinManageTab', label: 'የመግቢያ ቁልፍ ቅንብር', icon: KeyRound, roles: ['admin'] },
   ];
 
   const visibleTabs = tabs.filter((t) => currentUserRole && t.roles.includes(currentUserRole));
